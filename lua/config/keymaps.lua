@@ -17,7 +17,6 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-
 map("n", "<leader><Space>", "<leader>fF", { desc = "Find Files (cwd)", remap = true })
 map("n", "<S-g>", "<S-g>zz", { desc = "Go to bottom of the file", remap = true })
 map("n", "}", "}zz", { desc = "Jump paragraph", remap = true })

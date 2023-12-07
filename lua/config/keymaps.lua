@@ -19,5 +19,3 @@ end
 map("n", "<leader><Space>", "<leader>fF", { desc = "Find Files (cwd)", remap = true })
 map("n", "<S-g>", "<S-g>zz", { desc = "Go to bottom of the file", remap = true })
 map("n", "}", "}zz", { desc = "Jump paragraph", remap = true })
--- map("n", "<leader>e", "<leader>fe", { desc = "Explorer NeoTree (cwd)", remap = true })
--- map("n", "<leader>E", "<leader>fE", { desc = "Explorer NeoTree (root)", remap = true })

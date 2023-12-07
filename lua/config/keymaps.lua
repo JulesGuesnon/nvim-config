@@ -1,7 +1,6 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-local Util = require("lazyvim.util")
 
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
@@ -20,3 +19,5 @@ end
 map("n", "<leader><Space>", "<leader>fF", { desc = "Find Files (cwd)", remap = true })
 map("n", "<S-g>", "<S-g>zz", { desc = "Go to bottom of the file", remap = true })
 map("n", "}", "}zz", { desc = "Jump paragraph", remap = true })
+-- map("n", "<leader>e", "<leader>fe", { desc = "Explorer NeoTree (cwd)", remap = true })
+-- map("n", "<leader>E", "<leader>fE", { desc = "Explorer NeoTree (root)", remap = true })

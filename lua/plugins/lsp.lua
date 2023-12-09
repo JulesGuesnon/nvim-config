@@ -9,6 +9,10 @@ return {
         lua_ls = {
           hints = true,
         },
+        biome = {
+          -- Disabling linting
+          autostart = false,
+        },
         tsserver = {
           on_attach = function(client)
             client.server_capabilities.documentFormattingProvider = false

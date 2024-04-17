@@ -15,7 +15,7 @@ return {
         },
         tsserver = {
           root_dir = require("lspconfig.util").root_pattern(".git"),
-          cmd = { "bunx", "--bun", "typescript-language-server", "--stdio" },
+          -- cmd = { "bunx", "--bun", "typescript-language-server", "--stdio" },
           on_attach = function(client)
             client.server_capabilities.documentFormattingProvider = false
           end,

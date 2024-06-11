@@ -1,14 +1,4 @@
-local function file_exists(name)
-  local f = io.open(name, "r")
-  if f ~= nil then
-    io.close(f)
-    return true
-  else
-    return false
-  end
-end
-
-local formatter = file_exists("./biome.json") and "biome" or "prettier"
+local formatter = require("utils.file_exists").file_exists("./biome.json") and "biome" or "prettier"
 
 return {
   "stevearc/conform.nvim",

@@ -100,3 +100,5 @@ end
 vim.keymap.set("n", "<C-e>", function()
   toggle_telescope(harpoon:list())
 end, { desc = "Open harpoon window" })
+
+vim.keymap.set("n", "<leader>k", "<cmd>LazyDocker<CR>", { desc = "Toggle LazyDocker", noremap = true, silent = true })

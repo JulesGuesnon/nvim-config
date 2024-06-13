@@ -21,6 +21,23 @@ return {
       ["markdown.mdx"] = { "prettier" },
       ["graphql"] = { "prettier" },
       ["handlebars"] = { "prettier" },
+      ["ocaml"] = { "ocamlformat" },
+      ["menhir"] = { "ocamlformat" },
+      ["ocamlinterface"] = { "ocamlformat" },
+      ["ocamllex"] = { "ocamlformat" },
+      ["reason"] = { "ocamlformat" },
+      ["dune"] = { "dune" },
+    },
+    formatters = {
+      ocamlformat = {
+        args = { "--name", "$FILENAME", "-" },
+        -- stdin = false,
+      },
+      dune = {
+        stdin = true,
+        command = "dune",
+        args = { "format-dune-file" },
+      },
     },
   },
 }

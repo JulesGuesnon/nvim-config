@@ -12,6 +12,21 @@ require("lspconfig").ocamllsp.setup({
   root_dir = require("lspconfig.util").root_pattern("*.opam", "esy.json", ".git", "dune-project", "dune-workspace"),
 })
 
+require("lspconfig").gopls.setup({
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", ".git"),
+  opts = {
+    completeUninported = true,
+    analyses = {
+      unusedparams = true,
+    },
+  },
+})
+
+-- require("lspconfig").tailwindcss.setup({
+--   init_options = { userLanguages = { heex = "html" } },
+-- })
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -32,6 +47,9 @@ return {
           -- Disabling linting
           autostart = should_biome_start,
         },
+        -- tailwindcss = {
+        --   filetypes = {  },
+        -- },
         -- vtsls = {
         --   capabilities = capabilities,
         --   root_dir = require("lspconfig.util").root_pattern("package.json"),

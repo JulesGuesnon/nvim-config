@@ -20,5 +20,8 @@ return {
       "vue-language-server",
       "zls",
     },
+    ui = {
+      border = "rounded",
+    },
   },
 }

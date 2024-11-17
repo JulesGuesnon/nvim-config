@@ -4,8 +4,6 @@ return {
     ensure_installed = {
       "biome",
       "codelldb",
-      "elixir-ls",
-      "elixirls",
       "gofumpt",
       "goimports",
       "gopls",

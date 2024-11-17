@@ -19,86 +19,13 @@ end
 map("n", "<leader><Space>", "<leader>fF", { desc = "Find Files (cwd)", remap = true })
 map("n", "<S-g>", "<S-g>zz", { desc = "Go to bottom of the file", remap = true })
 map("n", "}", "}zz", { desc = "Jump paragraph", remap = true })
+map("n", "{", "{zz", { desc = "Jump paragraph", remap = true })
+
+vim.keymap.set("n", "<leader>db", "_v$%$y$%o<Esc>o<Esc>p", { desc = "Duplicate block", noremap = true })
 vim.keymap.set("n", "<TAB>", ">>")
 vim.keymap.set("n", "<S-TAB>", "<<")
 
----------- HARPOON ----------
-
-local harpoon = require("harpoon")
-
--- REQUIRED
-harpoon:setup({})
--- REQUIRED
-
-vim.keymap.set("n", "<leader>a", function()
-  harpoon:list():append()
-end, { desc = "Pin to harpoon" })
-
-vim.keymap.set("n", "<leader>hc", function()
-  harpoon:list():clear()
-end, { desc = "Clear harpoon" })
-
-vim.keymap.set("n", "<leader>hh", function()
-  harpoon:list():removeAt(1)
-end, { desc = "Clear harpoon 1st file" })
-
-vim.keymap.set("n", "<leader>hj", function()
-  harpoon:list():removeAt(2)
-end, { desc = "Clear harpoon 2nd file" })
-vim.keymap.set("n", "<leader>hk", function()
-  harpoon:list():removeAt(3)
-end, { desc = "Clear harpoon 3rd file" })
-
-vim.keymap.set("n", "<leader>hl", function()
-  harpoon:list():removeAt(4)
-end, { desc = "Clear harpoon 4th file" })
-
-vim.keymap.set("n", "<C-e>", function()
-  harpoon.ui:toggle_quick_menu(harpoon:list())
-end)
-
-vim.keymap.set("n", "<C-h>", function()
-  harpoon:list():select(1)
-end)
-vim.keymap.set("n", "<C-j>", function()
-  harpoon:list():select(2)
-end)
-vim.keymap.set("n", "<C-k>", function()
-  harpoon:list():select(3)
-end)
-vim.keymap.set("n", "<C-l>", function()
-  harpoon:list():select(4)
-end)
-
--- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set("n", "<C-S-P>", function()
-  harpoon:list():prev()
-end)
-vim.keymap.set("n", "<C-S-N>", function()
-  harpoon:list():next()
-end)
-
-local telescope_conf = require("telescope.config").values
-local function toggle_telescope(harpoon_files)
-  local file_paths = {}
-  for _, item in ipairs(harpoon_files.items) do
-    table.insert(file_paths, item.value)
-  end
-
-  require("telescope.pickers")
-    .new({}, {
-      prompt_title = "Harpoon",
-      finder = require("telescope.finders").new_table({
-        results = file_paths,
-      }),
-      previewer = telescope_conf.file_previewer({}),
-      sorter = telescope_conf.generic_sorter({}),
-    })
-    :find()
-end
-
-vim.keymap.set("n", "<C-e>", function()
-  toggle_telescope(harpoon:list())
-end, { desc = "Open harpoon window" })
-
 vim.keymap.set("n", "<leader>k", "<cmd>LazyDocker<CR>", { desc = "Toggle LazyDocker", noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Open Diffview", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gD", "<cmd>DiffviewClose<CR>", { desc = "Close Diffview", noremap = true, silent = true })
